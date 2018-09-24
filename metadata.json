@@ -1,0 +1,36 @@
+{
+  "name": "pinguinag-graylogcollectorsidecar",
+  "version": "1.0.0",
+  "author": "Pinguin AG",
+  "summary": "Installs and configures graylogcollectorsidecar, tags as resources",
+  "license": "Apache-2.0",
+  "source": "https://github.com/ag-pinguin/pinguinag-graylogcollectorsidecar",
+  "project_page": "https://github.com/ag-pinguin/pinguinag-graylogcollectorsidecar",
+  "issues_url": "https://github.com/ag-pinguin/pinguinag-graylogcollectorsidecar",
+  "dependencies": [
+    { "name":"puppetlabs/concat","version_requirement":">= 4.2.1 < 5.0.0" }
+  ],
+  "data_provider": "hiera",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "9"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "16.04",
+        "18.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 5.0.0 < 7.0.0"
+    }
+  ],
+  "description": "graylogcollectorsidecar Module for Debian."
+}

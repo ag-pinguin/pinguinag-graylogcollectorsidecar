@@ -1,0 +1,20 @@
+---
+  server_url: "<%= @api_url -%>"
+  update_interval: 10
+  tls_skip_verify: false
+  send_status: true
+  log_rotation_time: 86400
+  log_max_age: 604800
+  node_id: <%= @node_id %>
+  collector_id: "file:/etc/graylog/collector-sidecar/collector-id"
+  log_path: /var/log/graylog/collector-sidecar
+  backends:
+    - name: nxlog
+      enabled: false
+      binary_path: /usr/bin/nxlog
+      configuration_path: /etc/graylog/collector-sidecar/generated/nxlog.conf
+    - name: filebeat
+      enabled: true
+      binary_path: /usr/bin/filebeat
+      configuration_path: /etc/graylog/collector-sidecar/generated/filebeat.yml
+  tags:
