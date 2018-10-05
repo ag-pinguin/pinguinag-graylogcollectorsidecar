@@ -8,7 +8,10 @@
   "project_page": "https://github.com/ag-pinguin/pinguinag-graylogcollectorsidecar",
   "issues_url": "https://github.com/ag-pinguin/pinguinag-graylogcollectorsidecar",
   "dependencies": [
-    { "name":"puppetlabs/concat","version_requirement":">= 4.2.1 < 5.0.0" }
+    {
+      "name": "puppetlabs/concat",
+      "version_requirement": ">= 4.2.1 < 5.0.0"
+    }
   ],
   "data_provider": "hiera",
   "operatingsystem_support": [
@@ -32,5 +35,8 @@
       "version_requirement": ">= 5.0.0 < 7.0.0"
     }
   ],
-  "description": "graylogcollectorsidecar Module for Debian."
+  "description": "graylogcollectorsidecar Module for Debian.",
+  "pdk-version": "1.7.0",
+  "template-url": "file://C:/Program Files/Puppet Labs/DevelopmentKit/share/cache/pdk-templates.git",
+  "template-ref": "1.7.0-0-g57412ed"
 }
