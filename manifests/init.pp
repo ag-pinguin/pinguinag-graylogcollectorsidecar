@@ -2,16 +2,25 @@
 class graylogcollectorsidecar(
   String $api_url,
   String $version,
+  String $ensure  = true,
   String $node_id = $facts['networking']['hostname']
 ) {
-
+  if $ensure {
+    $config  = present
+    $package = installed
+    $service = running
+  } else {
+    $config  = absent
+    $package = removed
+    $service = stopped
+  }
   # Install
   exec { 'download package':
     command => "/usr/bin/wget -q https://github.com/Graylog2/collector-sidecar/releases/download/${version}/collector-sidecar_${version}-1_${facts['os']['architecture']}.deb -O /opt/collector-sidecar_${version}-1_${facts['os']['architecture']}.deb",
     creates => "/opt/collector-sidecar_${version}-1_${facts['os']['architecture']}.deb"
   }
   package { 'graylog-sidecar':
-    ensure   => 'installed',
+    ensure   => $package,
     name     => 'collector-sidecar',
     provider => 'dpkg',
     source   => "/opt/collector-sidecar_${version}-1_${facts['os']['architecture']}.deb",
@@ -24,7 +33,7 @@ class graylogcollectorsidecar(
 
   # Config
   concat { '/etc/graylog/collector-sidecar/collector_sidecar.yml':
-    ensure => present,
+    ensure => $config,
     notify => Service['sidecar']
   }
   concat::fragment { 'main-config':
@@ -35,7 +44,7 @@ class graylogcollectorsidecar(
   }
 
   service { 'sidecar':
-      ensure => running,
+      ensure => $service,
       name   => 'collector-sidecar',
   }
 }
