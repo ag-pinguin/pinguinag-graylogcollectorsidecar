@@ -2,7 +2,7 @@
 class graylogcollectorsidecar(
   String $api_url,
   String $version,
-  String $ensure  = true,
+  Boolean $ensure = true,
   String $node_id = $facts['networking']['hostname']
 ) {
   if $ensure {

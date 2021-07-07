@@ -1,3 +1,6 @@
+# 1.1.1.
+* Fix type error
+
 # 1.1.0
 * Allow uninstall
 
