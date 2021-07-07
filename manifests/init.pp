@@ -11,7 +11,7 @@ class graylogcollectorsidecar(
     $service = running
   } else {
     $config  = absent
-    $package = removed
+    $package = absent
     $service = stopped
   }
   # Install
