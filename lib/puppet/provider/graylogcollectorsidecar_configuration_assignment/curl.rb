@@ -25,7 +25,7 @@
         configuration = get_configuration(resource)
         nodeid        = get_nodeid
         if configuration != false
-            uri    = URI.parse(resource[:api_url] + '/sidecar/configurations/' + configuration['id']/sidecars)
+            uri    = URI.parse(resource[:api_url] + '/sidecar/configurations/' + configuration['id'] + '/sidecars')
             resp   = query('get', uri, '', resource)
             if resp.code == '200'
                 JSON.parse(resp.body)['sidecar_ids'].each | sidecar_id |
